@@ -141,4 +141,168 @@ Control the robot using keyboard (on PC):
 ```bash
 roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
+<br>
+
+## SLAM Mapping ##
+
+**Start SLAM mapping:**
+
+```bash
+roslaunch turtlebot3_slam turtlebot3_slam.launch
+```
+
+Navigate the robot around your environment to build the map using keyboard teleoperation command.
+
+**Saving the Map**
+Save the generated map:
+
+```bash
+rosrun map_server map_saver -f ~/map
+```
+Replace ~/map with your desired save location and filename.
+<br>
+
+## Autonomous Navigation ##
+
+**Launch autonomous navigation with your saved map:**
+
+```bash
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
+```
+Replace $HOME/map.yaml with your desired save location and filename.
+
+<br>
+<br>
+
+# Multi-Robot Control (for 5 Robots) #
+
+**Prerequisites:**
+
+-All the above steps are executed and the robot is working
+
+-SLAM mapping is done and is saved as both .pgm and .yaml as worldmap
+
+**Preparation**
+
+**Clone required repositories in your ~/catkin_ws/src/ directory**
+
+```bash
+git clone https://github.com/example/repo1.git
+git clone https://github.com/example/repo2.git
+```
+
+
+**Save the .pgm and .yaml map files to:**
+`turtlebot3_multirobot_navigation/turtlebot3_multirobot_navigation/maps`
+
+<br>
+
+## Launching the System ##
+
+**On Remote PC:**
+
+Start ROS Master:
+
+```bash
+roscore
+```
+
+**SBC Bringup for Each Robot**
+
+In separate terminals for each TurtleBot:
+
+Example For tb3_1:
+
+```bash
+ROS_NAMESPACE=tb3_1 roslaunch turtlebot3_bringup turtlebot3_robot.launch multi_robot_name:="tb3_1" set_lidar_frame_id:="tb3_1/base_scan"
+```
+
+Repeat for other robots, replacing tb3_1 with tb3_0, tb3_2, tb3_3, and tb3_4.
+
+<br>
+
+## Multi-Robot Navigation ##
+
+**On the remote PC:**
+
+```bash
+roslaunch turtlebot3_multirobot_navigation multirobot.launch
+```
+
+In RViz:
+
+Perform initial pose estimation for each robot.
+
+Assign the first five 2D Nav Goals to tb3_0 to tb3_4 respectively for individual control.
+
+<br>
+<br>
+
+# Formation Control #
+<br>
+
+## Triangle Formation (3 Bots: tb3_0, tb3_1, tb3_2): ##
+
+Run Multi Robot launch file
+
+```bash
+roslaunch turtlebot3_multirobot_navigation multirobot.launch
+```
+
+Run the formation script (in a new terminal):
+
+```bash
+rosrun multi_robot_formation triangle_formation.py
+```
+
+In RViz:
+
+Assign a 2D Nav Goal after the last robot (for the 6th goal) to control the formation's movement.[ publishes to `/triangle_center/goal` ]
+
+<br>
+
+## Square Formation (4 Bots: tb3_0, tb3_1, tb3_2, tb3_3) ##
+
+Run Multi Robot launch file
+
+```bash
+roslaunch turtlebot3_multirobot_navigation multirobot.launch
+```
+
+Run the formation script:
+
+```bash
+rosrun multi_robot_formation square_formation.py
+```
+
+In RViz:
+
+Assign a 2D Nav Goal after the triangle center goal (for the 7th goal) to control the square formation.[ publishes to `/square_center/goal` ]
+
+<br>
+
+## Pentagon Formation (4 Bots: tb3_0, tb3_1, tb3_2, tb3_3, tb3_4) ##
+
+Run Multi Robot launch file
+
+```bash
+roslaunch turtlebot3_multirobot_navigation multirobot.launch
+```
+
+Run the formation script:
+
+```bash
+rosrun multi_robot_formation pentagon_formation.py
+```
+
+In RViz:
+
+Assign a 2D Nav Goal after the square center goal (for the 8th goal) to control the pentagon formation.[ publishes to `/pentagon_center/goal` ]
+
+
+
+
+
+
+
 
