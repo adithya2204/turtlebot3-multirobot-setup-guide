@@ -45,9 +45,9 @@ sudo netplan apply
 ```
 
 
-## SBC `.bashrc` Setup
+## SBC .bashrc Setup
 
-Edit the `~/.bashrc` file to automatically source ROS and set environment variables:
+Edit the `~/.bashrc` file to source ROS and set environment variables automatically:
 
 ```bash
 sudo nano ~/.bashrc
