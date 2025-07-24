@@ -187,8 +187,12 @@ Replace $HOME/map.yaml with your desired save location and filename.
 **Clone required repositories in your ~/catkin_ws/src/ directory**
 
 ```bash
-git clone https://github.com/example/repo1.git
-git clone https://github.com/example/repo2.git
+cd ~/catkin_ws/src/
+git clone https://github.com/adithya2204/multi_robot_formation.git
+git clone https://github.com/adithya2204/turtlebot3_multirobot_navigation.git
+cd ..
+catkin_make
+source ~/.bashrc
 ```
 
 
