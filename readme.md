@@ -304,6 +304,13 @@ In RViz:
 Assign a 2D Nav Goal after the square center goal (for the 8th goal) to control the pentagon formation.[ publishes to `/pentagon_center/goal` ]
 
 
+## Positions of 2D pose estimates and 2D nav goals ##
+
+![pointer](https://github.com/user-attachments/assets/4c6a3b4d-2864-4b9c-8230-fea2d45d795f)
+
+
+
+
 
 
 
