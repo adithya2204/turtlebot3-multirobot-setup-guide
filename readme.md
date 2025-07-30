@@ -1,6 +1,6 @@
 # TurtleBot3 Burger Setup with ROS Noetic on Raspberry Pi (Ubuntu 20.04 LTS)
 
-This guide outlines the steps and configurations needed to set up and run the TurtleBot3 Burger using ROS Noetic on a Raspberry Pi Single Board Computer (SBC) with Ubuntu 20.04 LTS Server and how to setup multi robot formation
+This guide outlines the steps and configurations needed to set up and run the TurtleBot3 Burger using ROS Noetic on a Raspberry Pi Single Board Computer (SBC) with Ubuntu 20.04 LTS Server, and how to set up multi-robot formation
 
 <br>
 
@@ -67,8 +67,8 @@ sudo nano ~/.bashrc
 
 **Add these lines at the end:**
 
-for <SBC IP> : `hostname -I` on SBC
-for <host IP> : `hostname -I` on remote PC
+for SBC IP: `hostname -I` on SBC
+for host IP: `hostname -I` on remote PC
 
 ```bash
 source /opt/ros/noetic/setup.bash
@@ -104,7 +104,7 @@ sudo nano ~/.bashrc
 
 Add these lines:
 
-for <host IP>: `hostname -I` on remote PC
+for host IP: `hostname -I` on remote PC
 
 ```bash
 source /opt/ros/noetic/setup.bash
@@ -137,7 +137,7 @@ rosrun rviz rviz -d $(rospack find turtlebot3_description)/rviz/burger.rviz
 
 **Keyboard Teleoperation**
 
-Control the robot using keyboard (on PC):
+Control the robot using the keyboard (on PC):
 
 ```bash
 roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
@@ -152,7 +152,7 @@ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 roslaunch turtlebot3_slam turtlebot3_slam.launch
 ```
 
-Navigate the robot around your environment to build the map using keyboard teleoperation command.
+Navigate the robot around your environment to build the map using keyboard teleoperation commands.
 
 **Saving the Map**
 Save the generated map:
@@ -179,7 +179,7 @@ Replace $HOME/map.yaml with your desired save location and filename.
 
 **Prerequisites:**
 
--All the above steps are executed and the robot is working
+-All the above steps are executed, and the robot is working
 
 -SLAM mapping is done and is saved as both .pgm and .yaml as worldmap
 
@@ -238,7 +238,7 @@ In RViz:
 
 Perform initial pose estimation for each robot.
 
-Assign the first five 2D Nav Goals to tb3_0 to tb3_4 respectively for individual control.
+Assign the first five 2D Nav Goals to tb3_0 to tb3_4, respectively, for individual control.
 
 <br>
 <br>
@@ -248,7 +248,7 @@ Assign the first five 2D Nav Goals to tb3_0 to tb3_4 respectively for individual
 
 ## Triangle Formation (3 Bots: tb3_0, tb3_1, tb3_2): ##
 
-Run Multi Robot launch file
+Run the Multi Robot launch file
 
 ```bash
 roslaunch turtlebot3_multirobot_navigation multirobot.launch
@@ -268,7 +268,7 @@ Assign a 2D Nav Goal after the last robot (for the 6th goal) to control the form
 
 ## Square Formation (4 Bots: tb3_0, tb3_1, tb3_2, tb3_3) ##
 
-Run Multi Robot launch file
+Run the Multi Robot launch file
 
 ```bash
 roslaunch turtlebot3_multirobot_navigation multirobot.launch
@@ -288,7 +288,7 @@ Assign a 2D Nav Goal after the triangle center goal (for the 7th goal) to contro
 
 ## Pentagon Formation (4 Bots: tb3_0, tb3_1, tb3_2, tb3_3, tb3_4) ##
 
-Run Multi Robot launch file
+Run the Multi Robot launch file
 
 ```bash
 roslaunch turtlebot3_multirobot_navigation multirobot.launch
