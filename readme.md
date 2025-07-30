@@ -47,7 +47,7 @@ This guide outlines the steps and configurations needed to set up and run the Tu
 sudo nano /etc/netplan/50-cloud-init.yaml
 ```
 
-change the current SSID and password if connecting to a new network
+Change the current SSID and password if connecting to a new network
 
 
 2. Apply the changes:
@@ -103,6 +103,7 @@ sudo nano ~/.bashrc
 ```
 
 Add these lines:
+
 for <host IP>: `hostname -I` on remote PC
 
 ```bash
