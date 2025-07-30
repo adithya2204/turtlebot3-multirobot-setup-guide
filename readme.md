@@ -67,8 +67,8 @@ sudo nano ~/.bashrc
 
 **Add these lines at the end:**
 
-for <SBC IP>: `hostname -I` on SBC
-for <host IP>: `hostname -I` on remote PC
+for <SBC IP> : `hostname -I` on SBC
+for <host IP> : `hostname -I` on remote PC
 
 ```bash
 source /opt/ros/noetic/setup.bash
