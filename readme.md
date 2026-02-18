@@ -1,4 +1,4 @@
-# TurtleBot3 Burger Setup with ROS Noetic on Raspberry Pi (Ubuntu 20.04 LTS)
+# TurtleBot3 Multi-Robot Deployment Guide (ROS Noetic, Raspberry Pi)
 
 This guide outlines the steps and configurations needed to set up and run the TurtleBot3 Burger using ROS Noetic on a Raspberry Pi Single Board Computer (SBC) with Ubuntu 20.04 LTS Server, and how to set up multi-robot formation
 
